@@ -1,0 +1,78 @@
+@font-face {
+  font-family: 'iconfont';
+  src: url('data:application/x-font-woff2;charset=utf-8;base64,d09GMgABAAAAAAXAAAsAAAAACsQAAAVzAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHEIGVgCDMgqJCIcnATYCJAMUCwwABCAFhG0HTBvdCREVpFGR/UiwbSGPxKhRo0aNWjWK4uG/8f3umZn7ZvYbWCSJRjKJJhKJkCQapZFIhEIlFi/h/X+31r4PioV5VCwWC7FALBvb5wJWAQvEwnJhOXHlXE1dgrr/c8x0aQvL77a5ZHZRFMcBDSjqaGugwO1AJ+B9YLdhnMXlOE4DgUxlIrRt3X0AHgpzn0CMGzuyP3gZKqGGXOAVQs3cknOLuAIPr+nH5IC4m3w/fqGteJBUGfPQgaN7OtDwU/ezYmr936qjCND255DcRsZWoBCXc22nkILZrUgg85XbgHHwUiSf6mfFz8qfNf//PyJOIVPt/OGRBJHUGLMj2xHzk0CYCvhUAkHgUxUEiU81EBQ+K0Eo8bMSJLJgagFkB2AbIK4B8RQyVyqSNsGrEcXj4yMcDgc1MZFWVlbq6uqS09KSMzIyMrOzs3JycvLz8wsKCsrLyysqKqqqqmpqaurq6rKzs9PS0pKTkxMTE+PjY2Nj/X5/VFRUZGRkRER4eHhYWFhoaGhISEhwcHBQUFBgYGBAQIC/v7+fn5+vr6+Pj4+3t7eXl5enp6eHh4e7u7ubm5urq6uLi4uzs7OTk5Ojo6ODg4O9vb2dnZ2tra2NjY21tbWVlZWlpaWFhYW5ubmZmZmpqamJiYmxsbGRkZGhoaGBgYG+vr6enp6urq6Ojo62tra2trampqbGxsbGxsbKysrS0tLCwsLc3NzMzMzU1NTExMTY2NjIyMjQ0NDA4N9EPQjZAGJAZCsQbUCMBmIYiNVA9AExCYiJQEwBYjYQc4FYBMQyIFYBsRGIXUAcAuIkEOeAuA7EQyDeAPEZiO9A/ATiNxB/gfgHJACkAKQCpAGkA2QAZAJkAWQD5ADkAuQB5AMUABQClAAoQAVAJUAVQDVADUAtQB1APUADQCNAk/F6QAtAK0AbQDtAB0AnQBdAN0APwFXjdYA+gH6AAYBBgCGAYYARgFGAMYBxgAmASYApgGmAGYBZgDmAeYAFgEWAJYBlgBWAVYA1gHWADYBNgC2AbYAdgF2APYB9gAOAQ4AjgGOAE4BTgDOAc4ALgEuAK4BrgBuAW4A7gHuAB4BHgCeAZ4AXgFeAN4B3gA+AT4AvgG+A74AfgJ+AX4DfQABAEEAIQBhABEAUQAxAHEACQBJACkAaQAZAFkAOQB5AAUARQAlAGUAFQBVADUAdQANAE0ALQBtAB0AXwGXNb/yfvpVnpgc3XOTfqBs5cuVsXk7OzKXLF+bMWZg7b2HO/IU5CxbmLFyYs2hhzuLFOUuW5CxdmrNsWc7y5TkrVuSsXJmzalXO6tU5a9bkrF2bs25dzubNOVu25Gzdmrt9e+6OHbk7d+bu2pW7e3funt25e/fm7tuXu39/7oEDuQcP5h46lHv4cO6RI7lHj+YeO5Z7/HjuiRO5J0/mnjqVe/p07pkzuWfP5p47l3v+fO6FC7kXL+ZeupR7+XLulSu5V6/mXruWe/167o0buTdv5t66lXv7du6dO7l37+beu5d7/37ugwe5Dx/mPnqU+/hx7pMnuU+f5j57lvv8ee6LF7kvX+a+ep37+nXumze5b9/mvnuX+/597ocPuR8/5n76lPv5c+6XL7lff+Z++5X7/U/uzz+5v/7m/v6X+x8AqwCwHQ==');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.iconfont {
+  font-family: "iconfont" !important;
+  font-size: 16px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-search:before {
+  content: "\e600";
+}
+
+.icon-notification:before {
+  content: "\e601";
+}
+
+.icon-cart:before {
+  content: "\e602";
+}
+
+.icon-add:before {
+  content: "\e603";
+}
+
+.icon-heart:before {
+  content: "\e604";
+}
+
+.icon-heart-filled:before {
+  content: "\e605";
+}
+
+.icon-edit:before {
+  content: "\e606";
+}
+
+.icon-settings:before {
+  content: "\e607";
+}
+
+.icon-help:before {
+  content: "\e608";
+}
+
+.icon-info:before {
+  content: "\e609";
+}
+
+.icon-arrow-right:before {
+  content: "\e60a";
+}
+
+.icon-home:before {
+  content: "\e60b";
+}
+
+.icon-store:before {
+  content: "\e60c";
+}
+
+.icon-pet:before {
+  content: "\e60d";
+}
+
+.icon-message:before {
+  content: "\e60e";
+}
+
+.icon-profile:before {
+  content: "\e60f";
+} 

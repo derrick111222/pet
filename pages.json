@@ -1,0 +1,175 @@
+{
+  "pages": [
+    {
+      "path": "pages/index/index",
+      "style": {
+        "navigationBarTitleText": "PetMatch宠遇",
+        "enablePullDownRefresh": true
+      }
+    },
+    {
+      "path": "pages/store/store",
+      "style": {
+        "navigationBarTitleText": "商店"
+      }
+    },
+    {
+      "path": "pages/pet/pet",
+      "style": {
+        "navigationBarTitleText": "看看附近的宠物"
+      }
+    },
+    {
+      "path": "pages/message/message",
+      "style": {
+        "navigationBarTitleText": "消息"
+      }
+    },
+    {
+      "path": "pages/profile/profile",
+      "style": {
+        "navigationBarTitleText": "我的"
+      }
+    },
+    {
+      "path": "pages/pet-detail/pet-detail",
+      "style": {
+        "navigationBarTitleText": "宠物详情"
+      }
+    },
+    {
+      "path": "pages/chat/chat",
+      "style": {
+        "navigationBarTitleText": "聊天"
+      }
+    },
+    {
+      "path": "pages/search/search",
+      "style": {
+        "navigationBarTitleText": "搜索"
+      }
+    },
+    {
+      "path": "pages/notification/notification",
+      "style": {
+        "navigationBarTitleText": "通知"
+      }
+    },
+    {
+      "path": "pages/category/category",
+      "style": {
+        "navigationBarTitleText": "分类"
+      }
+    },
+    {
+      "path": "pages/article/article",
+      "style": {
+        "navigationBarTitleText": "文章详情"
+      }
+    },
+    {
+      "path": "pages/product-detail/product-detail",
+      "style": {
+        "navigationBarTitleText": "商品详情"
+      }
+    },
+    {
+      "path": "pages/cart/cart",
+      "style": {
+        "navigationBarTitleText": "购物车"
+      }
+    },
+    {
+      "path": "pages/edit-profile/edit-profile",
+      "style": {
+        "navigationBarTitleText": "编辑个人资料"
+      }
+    },
+    {
+      "path": "pages/my-pets/my-pets",
+      "style": {
+        "navigationBarTitleText": "我的宠物"
+      }
+    },
+    {
+      "path": "pages/moments/moments",
+      "style": {
+        "navigationBarTitleText": "记录时刻"
+      }
+    },
+    {
+      "path": "pages/favorites/favorites",
+      "style": {
+        "navigationBarTitleText": "我的收藏"
+      }
+    },
+    {
+      "path": "pages/health/health",
+      "style": {
+        "navigationBarTitleText": "健康服务"
+      }
+    },
+    {
+      "path": "pages/settings/settings",
+      "style": {
+        "navigationBarTitleText": "设置"
+      }
+    },
+    {
+      "path": "pages/help/help",
+      "style": {
+        "navigationBarTitleText": "帮助与反馈"
+      }
+    },
+    {
+      "path": "pages/about/about",
+      "style": {
+        "navigationBarTitleText": "关于我们"
+      }
+    }
+  ],
+  "globalStyle": {
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "uni-app",
+    "navigationBarBackgroundColor": "#F8F8F8",
+    "backgroundColor": "#F8F8F8"
+  },
+  "tabBar": {
+    "color": "#999999",
+    "selectedColor": "#FF6B6B",
+    "backgroundColor": "#FFFFFF",
+    "borderStyle": "black",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "static/images/home.png",
+        "selectedIconPath": "static/images/home-active.png"
+      },
+      {
+        "pagePath": "pages/store/store",
+        "text": "商店",
+        "iconPath": "static/images/store.png",
+        "selectedIconPath": "static/images/store-active.png"
+      },
+      {
+        "pagePath": "pages/pet/pet",
+        "text": "刷宠物",
+        "iconPath": "static/images/pet.png",
+        "selectedIconPath": "static/images/pet-active.png"
+      },
+      {
+        "pagePath": "pages/message/message",
+        "text": "消息",
+        "iconPath": "static/images/message.png",
+        "selectedIconPath": "static/images/message-active.png"
+      },
+      {
+        "pagePath": "pages/profile/profile",
+        "text": "我的",
+        "iconPath": "static/images/profile.png",
+        "selectedIconPath": "static/images/profile-active.png"
+      }
+    ]
+  }
+} 

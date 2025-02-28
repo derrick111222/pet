@@ -1,0 +1,51 @@
+{
+  "name": "petmatch",
+  "version": "1.0.0",
+  "description": "宠物社交与服务平台",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "uni-app",
+    "vue",
+    "微信小程序",
+    "宠物"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "@dcloudio/uni-app": "^2.0.0",
+    "@dcloudio/uni-app-plus": "^2.0.0",
+    "@dcloudio/uni-h5": "^2.0.0",
+    "@dcloudio/uni-mp-alipay": "^2.0.0",
+    "@dcloudio/uni-mp-baidu": "^2.0.0",
+    "@dcloudio/uni-mp-qq": "^2.0.0",
+    "@dcloudio/uni-mp-toutiao": "^2.0.0",
+    "@dcloudio/uni-mp-weixin": "^2.0.0",
+    "@dcloudio/uni-stat": "^2.0.0",
+    "vue": "^2.6.11",
+    "vuex": "^3.2.0"
+  },
+  "devDependencies": {
+    "@dcloudio/uni-cli-shared": "^2.0.0",
+    "@dcloudio/vue-cli-plugin-hbuilderx": "^2.0.0",
+    "@dcloudio/vue-cli-plugin-uni": "^2.0.0",
+    "@dcloudio/vue-cli-plugin-uni-optimize": "^2.0.0",
+    "@dcloudio/webpack-uni-mp-loader": "^2.0.0",
+    "@dcloudio/webpack-uni-pages-loader": "^2.0.0",
+    "@vue/cli-plugin-babel": "^4.3.0",
+    "@vue/cli-service": "^4.3.0",
+    "babel-plugin-import": "^1.13.0",
+    "node-sass": "^4.14.1",
+    "sass-loader": "^8.0.2",
+    "vue-template-compiler": "^2.6.11"
+  },
+  "browserslist": [
+    "Android >= 4",
+    "ios >= 8"
+  ],
+  "uni-app": {
+    "scripts": {}
+  }
+} 
