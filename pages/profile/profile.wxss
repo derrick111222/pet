@@ -1,0 +1,296 @@
+/* pages/profile/profile.wxss */
+page {
+  background-color: #f8f8f8;
+}
+
+.container {
+  min-height: 100vh;
+  padding-bottom: 30rpx;
+}
+
+/* 用户信息区域 */
+.user-info-section {
+  background-color: #ffffff;
+  padding: 40rpx 30rpx;
+  margin-bottom: 20rpx;
+  box-shadow: 0 2rpx 10rpx rgba(0, 0, 0, 0.05);
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+}
+
+.avatar-container {
+  position: relative;
+  margin-right: 30rpx;
+}
+
+.avatar {
+  width: 120rpx;
+  height: 120rpx;
+  border-radius: 50%;
+  background-color: #eeeeee;
+}
+
+.edit-icon {
+  position: absolute;
+  right: -10rpx;
+  bottom: -10rpx;
+  width: 40rpx;
+  height: 40rpx;
+  background-color: #ffffff;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 2rpx 6rpx rgba(0, 0, 0, 0.1);
+}
+
+.edit-icon image {
+  width: 24rpx;
+  height: 24rpx;
+}
+
+.user-details {
+  flex: 1;
+}
+
+.nickname {
+  font-size: 36rpx;
+  font-weight: 500;
+  color: #333333;
+  margin-bottom: 10rpx;
+}
+
+.user-level {
+  display: flex;
+  align-items: center;
+  font-size: 24rpx;
+  color: #666666;
+}
+
+.points {
+  margin-left: 20rpx;
+  color: #999999;
+}
+
+.user-info-not-login {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20rpx 0;
+}
+
+.avatar-not-login {
+  width: 100rpx;
+  height: 100rpx;
+  margin-bottom: 20rpx;
+}
+
+.login-text {
+  font-size: 32rpx;
+  color: #333333;
+}
+
+/* 我的宠物区域 */
+.my-pets-section {
+  background-color: #ffffff;
+  padding: 30rpx;
+  margin-bottom: 20rpx;
+  box-shadow: 0 2rpx 10rpx rgba(0, 0, 0, 0.05);
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20rpx;
+}
+
+.section-title {
+  font-size: 32rpx;
+  font-weight: 500;
+  color: #333333;
+}
+
+.more-link {
+  display: flex;
+  align-items: center;
+  font-size: 24rpx;
+  color: #999999;
+}
+
+.arrow-icon {
+  width: 24rpx;
+  height: 24rpx;
+  margin-left: 6rpx;
+}
+
+.pet-list {
+  display: flex;
+  overflow-x: auto;
+  padding: 10rpx 0;
+}
+
+.pet-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-right: 30rpx;
+  min-width: 120rpx;
+}
+
+.pet-avatar {
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 50%;
+  background-color: #eeeeee;
+  margin-bottom: 10rpx;
+}
+
+.pet-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.pet-name {
+  font-size: 28rpx;
+  color: #333333;
+  margin-bottom: 4rpx;
+}
+
+.pet-breed {
+  font-size: 22rpx;
+  color: #999999;
+}
+
+.add-pet {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 100rpx;
+}
+
+.add-icon {
+  width: 60rpx;
+  height: 60rpx;
+  border-radius: 50%;
+  background-color: #f0f0f0;
+  padding: 20rpx;
+  margin-bottom: 10rpx;
+}
+
+.empty-pets {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40rpx 0;
+}
+
+.empty-icon {
+  width: 80rpx;
+  height: 80rpx;
+  margin-bottom: 20rpx;
+  opacity: 0.5;
+}
+
+.add-pet-btn {
+  margin-top: 20rpx;
+  padding: 10rpx 30rpx;
+  background-color: #f0f0f0;
+  border-radius: 30rpx;
+  font-size: 24rpx;
+  color: #666666;
+}
+
+/* 我的订单区域 */
+.my-orders-section {
+  background-color: #ffffff;
+  padding: 30rpx;
+  margin-bottom: 20rpx;
+  box-shadow: 0 2rpx 10rpx rgba(0, 0, 0, 0.05);
+}
+
+.order-stats {
+  display: flex;
+  justify-content: space-between;
+  padding: 20rpx 0;
+}
+
+.order-stat-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  flex: 1;
+}
+
+.order-count {
+  position: absolute;
+  top: -10rpx;
+  right: 10rpx;
+  background-color: #ff6b6b;
+  color: #ffffff;
+  font-size: 20rpx;
+  min-width: 36rpx;
+  height: 36rpx;
+  border-radius: 18rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 6rpx;
+  box-sizing: border-box;
+}
+
+.order-icon {
+  width: 50rpx;
+  height: 50rpx;
+  margin-bottom: 10rpx;
+}
+
+/* 功能列表区域 */
+.function-list-section {
+  background-color: #ffffff;
+  margin-bottom: 20rpx;
+  box-shadow: 0 2rpx 10rpx rgba(0, 0, 0, 0.05);
+}
+
+.function-list {
+  padding: 0 30rpx;
+}
+
+.function-item {
+  display: flex;
+  align-items: center;
+  padding: 30rpx 0;
+  border-bottom: 1rpx solid #f0f0f0;
+}
+
+.function-item:last-child {
+  border-bottom: none;
+}
+
+.function-icon {
+  width: 40rpx;
+  height: 40rpx;
+  margin-right: 20rpx;
+}
+
+.function-name {
+  flex: 1;
+  font-size: 28rpx;
+  color: #333333;
+}
+
+/* 底部版本信息 */
+.footer {
+  text-align: center;
+  padding: 30rpx 0;
+}
+
+.version {
+  font-size: 24rpx;
+  color: #999999;
+}

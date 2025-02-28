@@ -1,0 +1,131 @@
+<!--pages/order/order.wxml-->
+<view class="container">
+  <!-- 页面标题 -->
+  <view class="page-header">
+    <view class="back-icon" bindtap="navigateBack">
+      <image src="/static/icons/back.png" mode="aspectFit"></image>
+    </view>
+    <view class="page-title">我的订单</view>
+  </view>
+  
+  <!-- 标签页 -->
+  <view class="tabs">
+    <view class="tab {{currentTab === index ? 'active' : ''}}" 
+          wx:for="{{tabs}}" 
+          wx:key="*this"
+          data-tab="{{index}}"
+          bindtap="switchTab">
+      {{item}}
+      <view class="tab-line" wx:if="{{currentTab === index}}"></view>
+    </view>
+  </view>
+  
+  <!-- 搜索框 -->
+  <view class="search-box">
+    <view class="search-input-wrap">
+      <image class="search-icon" src="/static/icons/search.png" mode="aspectFit"></image>
+      <input class="search-input" 
+             placeholder="搜索订单编号/商品名称" 
+             value="{{searchValue}}"
+             bindinput="onSearchInput"
+             bindconfirm="onSearch"
+             confirm-type="search" />
+      <view class="clear-icon" bindtap="clearSearch" wx:if="{{searchValue}}">
+        <image src="/static/icons/clear.png" mode="aspectFit"></image>
+      </view>
+    </view>
+    <view class="filter-icon" bindtap="showFilter">
+      <image src="/static/icons/filter.png" mode="aspectFit"></image>
+      <text>筛选</text>
+    </view>
+  </view>
+  
+  <!-- 订单列表 -->
+  <scroll-view class="order-list" 
+               scroll-y="true" 
+               bindscrolltolower="onReachBottom"
+               enable-back-to-top="true"
+               refresher-enabled="true"
+               refresher-triggered="{{isRefreshing}}"
+               bindrefresherrefresh="onPullDownRefresh">
+    <block wx:if="{{orderList.length > 0}}">
+      <view class="order-item" wx:for="{{orderList}}" wx:key="id">
+        <view class="order-header">
+          <view class="order-number">订单编号：{{item.id}}</view>
+          <view wx:if="{{item.status === 0}}" class="order-status status-pending">{{item.statusText}}</view>
+          <view wx:elif="{{item.status === 1}}" class="order-status status-shipping">{{item.statusText}}</view>
+          <view wx:elif="{{item.status === 2}}" class="order-status status-receiving">{{item.statusText}}</view>
+          <view wx:elif="{{item.status === 3}}" class="order-status status-completed">{{item.statusText}}</view>
+          <view wx:else class="order-status status-canceled">{{item.statusText}}</view>
+        </view>
+        
+        <view class="order-products">
+          <view class="product-item" wx:for="{{item.products}}" wx:for-item="product" wx:key="id">
+            <image class="product-image" src="{{product.image}}" mode="aspectFill"></image>
+            <view class="product-info">
+              <view class="product-name">{{product.name}}</view>
+              <view class="product-spec">{{product.spec}}</view>
+              <view class="product-price">¥{{product.price}}</view>
+              <view class="product-quantity">x{{product.quantity}}</view>
+            </view>
+          </view>
+        </view>
+        
+        <view class="order-footer">
+          <view class="order-amount">
+            <text>实付款：</text>
+            <text class="amount">¥{{item.actualAmount}}</text>
+          </view>
+          
+          <view class="order-actions">
+            <!-- 待付款状态 -->
+            <block wx:if="{{item.status === 0}}">
+              <view class="action-btn go-pay" bindtap="goToPay" data-id="{{item.id}}">去支付</view>
+            </block>
+            
+            <!-- 待发货状态 -->
+            <block wx:elif="{{item.status === 1}}">
+              <view class="action-btn contact" bindtap="contactSeller" data-id="{{item.id}}">联系卖家</view>
+            </block>
+            
+            <!-- 待收货状态 -->
+            <block wx:elif="{{item.status === 2}}">
+              <view class="action-btn logistics" bindtap="checkLogistics" data-id="{{item.id}}">查看物流</view>
+            </block>
+            
+            <!-- 已完成状态 -->
+            <block wx:elif="{{item.status === 3}}">
+              <view class="action-btn buy-again" bindtap="buyAgain" data-id="{{item.id}}">再次购买</view>
+            </block>
+            
+            <!-- 已取消状态 -->
+            <block wx:elif="{{item.status === 4}}">
+              <view class="action-btn buy-again" bindtap="buyAgain" data-id="{{item.id}}">再次购买</view>
+            </block>
+          </view>
+        </view>
+      </view>
+    </block>
+    
+    <!-- 空状态 -->
+    <view class="empty-state" wx:if="{{orderList.length === 0 && !isLoading}}">
+      <image class="empty-icon" src="/static/icons/empty-box.png" mode="aspectFit"></image>
+      <view class="empty-text">暂无订单</view>
+      <view class="empty-subtext">去商城看看吧</view>
+      <view class="action-btn primary" bindtap="goToStore">去购物</view>
+    </view>
+    
+    <!-- 加载中 -->
+    <view class="loading-state" wx:if="{{isLoading}}">
+      <view class="loading-icon"></view>
+      <view class="loading-text">加载中...</view>
+    </view>
+    
+    <!-- 加载完毕 -->
+    <view class="load-all" wx:if="{{noMoreData && orderList.length > 0}}">
+      <view class="line"></view>
+      <view class="text">没有更多订单了</view>
+      <view class="line"></view>
+    </view>
+  </scroll-view>
+</view> 

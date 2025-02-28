@@ -1,0 +1,66 @@
+<!--pages/logistics/logistics.wxml-->
+<view class="container">
+  <!-- 页面标题 -->
+  <view class="page-header">
+    <view class="back-icon" bindtap="navigateBack">
+      <image src="/static/icons/back.png" mode="aspectFit"></image>
+    </view>
+    <view class="page-title">物流详情</view>
+  </view>
+  
+  <!-- 物流信息 -->
+  <view class="logistics-info" wx:if="{{orderInfo && orderInfo.logistics}}">
+    <view class="logistics-status">
+      <view class="status-icon">
+        <image src="/static/icons/truck.png" mode="aspectFit"></image>
+      </view>
+      <view class="status-text">
+        <view class="status">{{logisticsInfo.status}}</view>
+        <view class="company">{{orderInfo.logistics.company}}</view>
+      </view>
+    </view>
+    
+    <view class="logistics-number">
+      <text>物流单号：{{orderInfo.logistics.number}}</text>
+      <view class="copy-btn" bindtap="copyTrackingNumber">复制</view>
+    </view>
+    
+    <view class="logistics-actions">
+      <view class="action-btn" bindtap="contactLogistics">
+        <image src="/static/icons/phone.png" mode="aspectFit"></image>
+        <text>联系快递</text>
+      </view>
+    </view>
+  </view>
+  
+  <!-- 收货地址 -->
+  <view class="address-info" wx:if="{{orderInfo && orderInfo.address}}">
+    <view class="section-title">收货地址</view>
+    <view class="address-content">
+      <view class="address-name">{{orderInfo.address.name}} {{orderInfo.address.phone}}</view>
+      <view class="address-detail">{{orderInfo.address.address}}</view>
+    </view>
+  </view>
+  
+  <!-- 物流轨迹 -->
+  <view class="logistics-traces" wx:if="{{logisticsInfo && logisticsInfo.traces}}">
+    <view class="section-title">物流轨迹</view>
+    <view class="traces-list">
+      <view class="trace-item {{index === 0 ? 'active' : ''}}" 
+            wx:for="{{logisticsInfo.traces}}" 
+            wx:key="time">
+        <view class="trace-time">{{item.time}}</view>
+        <view class="trace-content">
+          <view class="trace-dot"></view>
+          <view class="trace-line" wx:if="{{index !== logisticsInfo.traces.length - 1}}"></view>
+          <view class="trace-text">{{item.content}}</view>
+        </view>
+      </view>
+    </view>
+  </view>
+  
+  <!-- 底部按钮 -->
+  <view class="bottom-bar" wx:if="{{orderInfo && orderInfo.status === 2}}">
+    <view class="confirm-btn" bindtap="confirmReceipt">确认收货</view>
+  </view>
+</view>

@@ -1,0 +1,156 @@
+/* pages/message/message.wxss */
+page {
+  background-color: #f8f8f8;
+}
+
+.container {
+  min-height: 100vh;
+  padding: 0 0 30rpx 0;
+}
+
+/* 顶部标题栏 */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30rpx 30rpx;
+  background-color: #ffffff;
+  border-bottom: 1rpx solid #eeeeee;
+}
+
+.title {
+  font-size: 36rpx;
+  font-weight: bold;
+  color: #333333;
+}
+
+.unread-count {
+  font-size: 24rpx;
+  color: #ff6b6b;
+  background-color: #ffefef;
+  padding: 6rpx 16rpx;
+  border-radius: 20rpx;
+}
+
+/* 消息列表 */
+.message-list {
+  background-color: #ffffff;
+}
+
+.message-item {
+  display: flex;
+  padding: 30rpx;
+  border-bottom: 1rpx solid #f0f0f0;
+  position: relative;
+}
+
+/* 头像样式 */
+.avatar-container {
+  position: relative;
+  margin-right: 20rpx;
+}
+
+.avatar {
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 50%;
+  background-color: #eeeeee;
+}
+
+.unread-badge {
+  position: absolute;
+  top: -10rpx;
+  right: -10rpx;
+  background-color: #ff6b6b;
+  color: #ffffff;
+  font-size: 20rpx;
+  min-width: 36rpx;
+  height: 36rpx;
+  border-radius: 18rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 6rpx;
+  box-sizing: border-box;
+}
+
+/* 消息内容 */
+.message-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow: hidden;
+}
+
+.message-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10rpx;
+}
+
+.user-name {
+  font-size: 32rpx;
+  font-weight: 500;
+  color: #333333;
+}
+
+.message-time {
+  font-size: 24rpx;
+  color: #999999;
+}
+
+.message-bottom {
+  width: 100%;
+}
+
+.last-message {
+  font-size: 28rpx;
+  color: #666666;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  max-width: 450rpx;
+}
+
+/* 删除按钮 */
+.delete-btn {
+  display: flex;
+  align-items: center;
+  padding: 0 10rpx;
+}
+
+.delete-btn image {
+  width: 40rpx;
+  height: 40rpx;
+  opacity: 0.6;
+}
+
+/* 空状态 */
+.empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 100rpx 50rpx;
+}
+
+.empty-image {
+  width: 300rpx;
+  height: 300rpx;
+  margin-bottom: 30rpx;
+}
+
+.empty-text {
+  font-size: 32rpx;
+  color: #333333;
+  font-weight: 500;
+  margin-bottom: 10rpx;
+}
+
+.empty-subtext {
+  font-size: 28rpx;
+  color: #999999;
+  text-align: center;
+}

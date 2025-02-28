@@ -1,0 +1,103 @@
+<!--pages/profile/profile.wxml-->
+<view class="container">
+  <!-- 用户信息区域 -->
+  <view class="user-info-section">
+    <view class="user-info" wx:if="{{isLogin}}">
+      <view class="avatar-container" bindtap="goToEditProfile">
+        <image class="avatar" src="{{userInfo.avatar}}" mode="aspectFill"></image>
+        <view class="edit-icon">
+          <image src="https://img.icons8.com/ios/50/000000/edit--v1.png" mode="aspectFit"></image>
+        </view>
+      </view>
+      <view class="user-details">
+        <view class="nickname">{{userInfo.nickName}}</view>
+        <view class="user-level">
+          <text>{{userInfo.level}}</text>
+          <text class="points">积分: {{userInfo.points}}</text>
+        </view>
+      </view>
+    </view>
+    <view class="user-info-not-login" wx:else bindtap="goToLogin">
+      <image class="avatar-not-login" src="https://img.icons8.com/ios/50/000000/user-male-circle.png" mode="aspectFit"></image>
+      <text class="login-text">点击登录</text>
+    </view>
+  </view>
+
+  <!-- 我的宠物区域 -->
+  <view class="my-pets-section">
+    <view class="section-header">
+      <text class="section-title">我的宠物</text>
+      <view class="more-link" bindtap="goToMyPets">
+        <text>查看全部</text>
+        <image class="arrow-icon" src="https://img.icons8.com/ios/50/000000/chevron-right.png" mode="aspectFit"></image>
+      </view>
+    </view>
+    <view class="pet-list" wx:if="{{myPets.length > 0}}">
+      <view class="pet-item" wx:for="{{myPets}}" wx:key="id">
+        <image class="pet-avatar" src="{{item.avatar}}" mode="aspectFill"></image>
+        <view class="pet-info">
+          <text class="pet-name">{{item.name}}</text>
+          <text class="pet-breed">{{item.type}} · {{item.breed}}</text>
+        </view>
+      </view>
+      <view class="add-pet">
+        <image class="add-icon" src="https://img.icons8.com/ios/50/000000/plus.png" mode="aspectFit"></image>
+        <text>添加宠物</text>
+      </view>
+    </view>
+    <view class="empty-pets" wx:else>
+      <image class="empty-icon" src="https://img.icons8.com/ios/50/000000/pet.png" mode="aspectFit"></image>
+      <text>您还没有添加宠物</text>
+      <view class="add-pet-btn">添加宠物</view>
+    </view>
+  </view>
+
+  <!-- 我的订单区域 -->
+  <view class="my-orders-section">
+    <view class="section-header">
+      <text class="section-title">我的订单</text>
+      <view class="more-link" bindtap="goToOrders" data-status="all">
+        <text>查看全部</text>
+        <image class="arrow-icon" src="https://img.icons8.com/ios/50/000000/chevron-right.png" mode="aspectFit"></image>
+      </view>
+    </view>
+    <view class="order-stats">
+      <view class="order-stat-item" bindtap="goToOrders" data-status="unpaid">
+        <view class="order-count" wx:if="{{orderStats.unpaid > 0}}">{{orderStats.unpaid}}</view>
+        <image class="order-icon" src="https://img.icons8.com/ios/50/000000/wallet.png" mode="aspectFit"></image>
+        <text>待付款</text>
+      </view>
+      <view class="order-stat-item" bindtap="goToOrders" data-status="unshipped">
+        <view class="order-count" wx:if="{{orderStats.unshipped > 0}}">{{orderStats.unshipped}}</view>
+        <image class="order-icon" src="https://img.icons8.com/ios/50/000000/box.png" mode="aspectFit"></image>
+        <text>待发货</text>
+      </view>
+      <view class="order-stat-item" bindtap="goToOrders" data-status="shipped">
+        <view class="order-count" wx:if="{{orderStats.shipped > 0}}">{{orderStats.shipped}}</view>
+        <image class="order-icon" src="https://img.icons8.com/ios/50/000000/truck.png" mode="aspectFit"></image>
+        <text>待收货</text>
+      </view>
+      <view class="order-stat-item" bindtap="goToOrders" data-status="completed">
+        <view class="order-count" wx:if="{{orderStats.completed > 0}}">{{orderStats.completed}}</view>
+        <image class="order-icon" src="https://img.icons8.com/ios/50/000000/star.png" mode="aspectFit"></image>
+        <text>已完成</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 功能列表区域 -->
+  <view class="function-list-section">
+    <view class="function-list">
+      <view class="function-item" wx:for="{{functionList}}" wx:key="id" bindtap="goToFunction" data-url="{{item.url}}">
+        <image class="function-icon" src="{{item.icon}}" mode="aspectFit"></image>
+        <text class="function-name">{{item.name}}</text>
+        <image class="arrow-icon" src="https://img.icons8.com/ios/50/000000/chevron-right.png" mode="aspectFit"></image>
+      </view>
+    </view>
+  </view>
+
+  <!-- 底部版本信息 -->
+  <view class="footer">
+    <text class="version">宠物配对 v1.0.0</text>
+  </view>
+</view>

@@ -1,0 +1,43 @@
+<!--pages/index/index.wxml-->
+<view class="container">
+  <!-- 顶部搜索栏 -->
+  <view class="search-bar">
+    <view class="logo">PetMatch宠遇</view>
+    <view class="search-input-wrapper">
+      <input class="search-input" placeholder="搜索宠物、商品、服务" value="{{searchValue}}" bindinput="onSearchInput" confirm-type="search" bindconfirm="onSearch" />
+      <icon class="search-icon" type="search" size="16"></icon>
+    </view>
+    <view class="notification-icon">
+      <image src="https://img.icons8.com/ios/50/000000/appointment-reminders--v1.png" mode="aspectFit"></image>
+    </view>
+  </view>
+  
+  <!-- 轮播图 -->
+  <swiper class="banner-swiper" indicator-dots="{{true}}" autoplay="{{true}}" interval="3000" duration="500" circular="{{true}}">
+    <swiper-item wx:for="{{bannerList}}" wx:key="id">
+      <image src="{{item.image}}" class="banner-image" mode="aspectFill" data-url="{{item.url}}" bindtap="onRecommendTap"></image>
+    </swiper-item>
+  </swiper>
+  
+  <!-- 分类导航 -->
+  <view class="category-section">
+    <view class="category-item" wx:for="{{categoryList}}" wx:key="id" data-url="{{item.url}}" bindtap="onCategoryTap">
+      <image class="category-icon" src="{{item.icon}}" mode="aspectFit"></image>
+      <text class="category-name">{{item.name}}</text>
+    </view>
+  </view>
+  
+  <!-- 精选推荐 -->
+  <view class="recommend-section">
+    <view class="section-title">精选推荐</view>
+    <view class="recommend-list">
+      <view class="recommend-item" wx:for="{{recommendList}}" wx:key="id" data-url="{{item.url}}" bindtap="onRecommendTap">
+        <image class="recommend-image" src="{{item.image}}" mode="aspectFill"></image>
+        <view class="recommend-info">
+          <view class="recommend-title">{{item.title}}</view>
+          <view class="recommend-desc">{{item.desc}}</view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

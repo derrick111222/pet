@@ -1,0 +1,42 @@
+<!--pages/message/message.wxml-->
+<view class="container">
+  <!-- 顶部标题栏 -->
+  <view class="header">
+    <view class="title">消息</view>
+    <view class="unread-count" wx:if="{{unreadCount > 0}}">{{unreadCount}}条未读</view>
+  </view>
+  
+  <!-- 消息列表 -->
+  <view class="message-list" wx:if="{{messageList.length > 0}}">
+    <view class="message-item" wx:for="{{messageList}}" wx:key="id" bindtap="goToChat" data-userid="{{item.userId}}" data-username="{{item.userName}}" data-petname="{{item.petName}}">
+      <!-- 头像 -->
+      <view class="avatar-container">
+        <image class="avatar" src="{{item.avatar}}" mode="aspectFill"></image>
+        <view class="unread-badge" wx:if="{{item.unread > 0}}">{{item.unread}}</view>
+      </view>
+      
+      <!-- 消息内容 -->
+      <view class="message-content">
+        <view class="message-top">
+          <text class="user-name">{{item.userName}}</text>
+          <text class="message-time">{{item.time}}</text>
+        </view>
+        <view class="message-bottom">
+          <text class="last-message">{{item.lastMessage}}</text>
+        </view>
+      </view>
+      
+      <!-- 删除按钮 -->
+      <view class="delete-btn" catchtap="deleteMessage" data-id="{{item.id}}">
+        <image src="https://img.icons8.com/ios/50/000000/delete--v1.png" mode="aspectFit"></image>
+      </view>
+    </view>
+  </view>
+  
+  <!-- 空状态 -->
+  <view class="empty-state" wx:else>
+    <image class="empty-image" src="https://img.freepik.com/free-vector/no-data-concept-illustration_114360-536.jpg" mode="aspectFit"></image>
+    <text class="empty-text">暂无消息</text>
+    <text class="empty-subtext">去刷宠物，认识更多宠友吧</text>
+  </view>
+</view>

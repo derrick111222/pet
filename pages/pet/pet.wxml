@@ -1,0 +1,113 @@
+<!--pages/pet/pet.wxml-->
+<view class="container">
+  <!-- 顶部筛选栏 -->
+  <view class="filter-bar">
+    <view class="filter-btn" bindtap="toggleFilter">
+      <text>筛选</text>
+      <image class="filter-icon" src="https://img.icons8.com/ios/50/000000/filter--v1.png" mode="aspectFit"></image>
+    </view>
+    <view class="current-filter">
+      <text>{{filterOptions.type}} · {{filterOptions.distance}}km · {{filterOptions.age}}</text>
+    </view>
+  </view>
+  
+  <!-- 宠物卡片区域 -->
+  <view class="pet-card-container" wx:if="{{petList.length > 0}}">
+    <view class="pet-card">
+      <image class="pet-image" src="{{petList[currentIndex].images[0]}}" mode="aspectFill"></image>
+      <view class="pet-info">
+        <view class="pet-name-row">
+          <text class="pet-name">{{petList[currentIndex].name}}</text>
+          <text class="pet-age">{{petList[currentIndex].age}}岁</text>
+          <text class="pet-gender">{{petList[currentIndex].gender}}</text>
+        </view>
+        <view class="pet-breed">{{petList[currentIndex].type}} · {{petList[currentIndex].breed}}</view>
+        <view class="pet-distance">距离{{petList[currentIndex].distance}}km</view>
+        <view class="pet-description">{{petList[currentIndex].description}}</view>
+        
+        <view class="owner-info">
+          <image class="owner-avatar" src="{{petList[currentIndex].owner.avatar}}" mode="aspectFill"></image>
+          <text class="owner-name">{{petList[currentIndex].owner.name}}</text>
+        </view>
+      </view>
+    </view>
+    
+    <!-- 操作按钮 -->
+    <view class="action-buttons">
+      <view class="action-btn prev" bindtap="prevPet">
+        <image src="https://img.icons8.com/ios/50/000000/left--v1.png" mode="aspectFit"></image>
+      </view>
+      <view class="action-btn detail" bindtap="viewPetDetail">
+        <image src="https://img.icons8.com/ios/50/000000/info--v1.png" mode="aspectFit"></image>
+      </view>
+      <view class="action-btn contact" bindtap="contactOwner">
+        <image src="https://img.icons8.com/ios/50/000000/chat--v1.png" mode="aspectFit"></image>
+      </view>
+      <view class="action-btn next" bindtap="nextPet">
+        <image src="https://img.icons8.com/ios/50/000000/right--v1.png" mode="aspectFit"></image>
+      </view>
+    </view>
+  </view>
+  
+  <!-- 空状态 -->
+  <view class="empty-state" wx:else>
+    <image class="empty-image" src="https://img.freepik.com/free-vector/no-data-concept-illustration_114360-536.jpg" mode="aspectFit"></image>
+    <text class="empty-text">附近暂时没有宠物</text>
+    <text class="empty-subtext">换个筛选条件试试吧</text>
+  </view>
+  
+  <!-- 筛选面板 -->
+  <view class="filter-panel {{showFilter ? 'show' : ''}}">
+    <view class="filter-header">
+      <text class="filter-title">筛选条件</text>
+      <view class="filter-close" bindtap="toggleFilter">×</view>
+    </view>
+    
+    <view class="filter-section">
+      <view class="section-title">宠物类型</view>
+      <view class="filter-options">
+        <view class="filter-option {{filterOptions.type === item ? 'active' : ''}}" 
+              wx:for="{{petTypes}}" 
+              wx:key="*this" 
+              data-type="{{item}}" 
+              bindtap="setTypeFilter">
+          {{item}}
+        </view>
+      </view>
+    </view>
+    
+    <view class="filter-section">
+      <view class="section-title">距离范围</view>
+      <view class="filter-options">
+        <view class="filter-option {{filterOptions.distance === item ? 'active' : ''}}" 
+              wx:for="{{distanceOptions}}" 
+              wx:key="*this" 
+              data-distance="{{item}}" 
+              bindtap="setDistanceFilter">
+          {{item}}km
+        </view>
+      </view>
+    </view>
+    
+    <view class="filter-section">
+      <view class="section-title">年龄范围</view>
+      <view class="filter-options">
+        <view class="filter-option {{filterOptions.age === item ? 'active' : ''}}" 
+              wx:for="{{ageOptions}}" 
+              wx:key="*this" 
+              data-age="{{item}}" 
+              bindtap="setAgeFilter">
+          {{item}}
+        </view>
+      </view>
+    </view>
+    
+    <view class="filter-actions">
+      <view class="reset-btn" bindtap="resetFilter">重置</view>
+      <view class="apply-btn" bindtap="applyFilter">应用</view>
+    </view>
+  </view>
+  
+  <!-- 遮罩层 -->
+  <view class="mask" wx:if="{{showFilter}}" bindtap="toggleFilter"></view>
+</view>

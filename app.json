@@ -1,0 +1,68 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/store/store",
+    "pages/pet/pet",
+    "pages/message/message",
+    "pages/profile/profile",
+    "pages/pet-detail/pet-detail",
+    "pages/chat/chat",
+    "pages/search/search",
+    "pages/notification/notification",
+    "pages/category/category",
+    "pages/article/article",
+    "pages/product-detail/product-detail",
+    "pages/cart/cart",
+    "pages/edit-profile/edit-profile",
+    "pages/my-pets/my-pets",
+    "pages/moments/moments",
+    "pages/favorites/favorites",
+    "pages/health/health",
+    "pages/settings/settings",
+    "pages/help/help",
+    "pages/about/about",
+    "pages/order/order",
+    "pages/payment/payment",
+    "pages/logistics/logistics"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#F8F8F8",
+    "navigationBarTitleText": "PetMatch宠遇",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "color": "#999999",
+    "selectedColor": "#FF6B6B",
+    "backgroundColor": "#FFFFFF",
+    "borderStyle": "black",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/store/store",
+        "text": "商店"
+      },
+      {
+        "pagePath": "pages/pet/pet",
+        "text": "刷宠物"
+      },
+      {
+        "pagePath": "pages/message/message",
+        "text": "消息"
+      },
+      {
+        "pagePath": "pages/profile/profile",
+        "text": "我的"
+      }
+    ]
+  },
+  "permission": {
+    "scope.userLocation": {
+      "desc": "获取您的位置信息，用于查找附近的宠物"
+    }
+  },
+  "sitemapLocation": "sitemap.json"
+} 

@@ -1,0 +1,66 @@
+<!--pages/payment/payment.wxml-->
+<view class="container">
+  <!-- 页面标题 -->
+  <view class="page-header">
+    <view class="back-icon" bindtap="navigateBack">
+      <image src="/static/icons/back.png" mode="aspectFit"></image>
+    </view>
+    <view class="page-title">订单支付</view>
+  </view>
+  
+  <!-- 订单信息 -->
+  <view class="order-info" wx:if="{{orderInfo}}">
+    <view class="order-header">
+      <view class="order-status">{{orderInfo.statusText}}</view>
+      <view class="payment-deadline">
+        <text>支付剩余时间：</text>
+        <text class="countdown">23:59:59</text>
+      </view>
+    </view>
+    
+    <view class="order-amount">
+      <text class="currency">¥</text>
+      <text class="amount">{{orderInfo.actualAmount}}</text>
+    </view>
+    
+    <view class="order-detail">
+      <view class="detail-item">
+        <text class="label">订单编号</text>
+        <text class="value">{{orderInfo.id}}</text>
+      </view>
+      <view class="detail-item">
+        <text class="label">创建时间</text>
+        <text class="value">{{orderInfo.createTime}}</text>
+      </view>
+    </view>
+  </view>
+  
+  <!-- 支付方式 -->
+  <view class="payment-methods">
+    <view class="section-title">支付方式</view>
+    <view class="method-list">
+      <view class="method-item {{item.selected ? 'selected' : ''}}" 
+            wx:for="{{paymentMethods}}" 
+            wx:key="id"
+            bindtap="selectPaymentMethod"
+            data-id="{{item.id}}">
+        <view class="method-icon">
+          <image src="{{item.icon}}" mode="aspectFit"></image>
+        </view>
+        <view class="method-name">{{item.name}}</view>
+        <view class="method-check">
+          <image src="{{item.selected ? '/static/icons/check-active.png' : '/static/icons/check.png'}}" mode="aspectFit"></image>
+        </view>
+      </view>
+    </view>
+  </view>
+  
+  <!-- 底部按钮 -->
+  <view class="bottom-bar">
+    <view class="payment-info">
+      <text>实付款：</text>
+      <text class="price">¥{{orderInfo.actualAmount}}</text>
+    </view>
+    <view class="confirm-btn" bindtap="confirmPayment">确认支付</view>
+  </view>
+</view>

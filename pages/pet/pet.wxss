@@ -1,0 +1,277 @@
+/* pages/pet/pet.wxss */
+page {
+  background-color: #f8f8f8;
+}
+
+.container {
+  min-height: 100vh;
+  position: relative;
+}
+
+/* 顶部筛选栏 */
+.filter-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20rpx 30rpx;
+  background-color: #fff;
+  border-bottom: 1rpx solid #eee;
+}
+
+.filter-btn {
+  display: flex;
+  align-items: center;
+  font-size: 28rpx;
+  color: #666;
+}
+
+.filter-icon {
+  width: 32rpx;
+  height: 32rpx;
+  margin-left: 10rpx;
+}
+
+.current-filter {
+  font-size: 24rpx;
+  color: #999;
+}
+
+/* 宠物卡片 */
+.pet-card-container {
+  padding: 30rpx;
+}
+
+.pet-card {
+  background-color: #fff;
+  border-radius: 20rpx;
+  overflow: hidden;
+  box-shadow: 0 4rpx 20rpx rgba(0, 0, 0, 0.1);
+}
+
+.pet-image {
+  width: 100%;
+  height: 500rpx;
+}
+
+.pet-info {
+  padding: 30rpx;
+}
+
+.pet-name-row {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10rpx;
+}
+
+.pet-name {
+  font-size: 36rpx;
+  font-weight: bold;
+  margin-right: 20rpx;
+}
+
+.pet-age, .pet-gender {
+  font-size: 24rpx;
+  color: #666;
+  background-color: #f5f5f5;
+  padding: 4rpx 16rpx;
+  border-radius: 20rpx;
+  margin-right: 10rpx;
+}
+
+.pet-breed {
+  font-size: 28rpx;
+  color: #333;
+  margin-bottom: 10rpx;
+}
+
+.pet-distance {
+  font-size: 24rpx;
+  color: #ff6b81;
+  margin-bottom: 20rpx;
+}
+
+.pet-description {
+  font-size: 28rpx;
+  color: #666;
+  line-height: 1.5;
+  margin-bottom: 30rpx;
+}
+
+.owner-info {
+  display: flex;
+  align-items: center;
+  padding-top: 20rpx;
+  border-top: 1rpx solid #eee;
+}
+
+.owner-avatar {
+  width: 60rpx;
+  height: 60rpx;
+  border-radius: 50%;
+  margin-right: 20rpx;
+}
+
+.owner-name {
+  font-size: 28rpx;
+  color: #333;
+}
+
+/* 操作按钮 */
+.action-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 30rpx;
+}
+
+.action-btn {
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 50%;
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4rpx 10rpx rgba(0, 0, 0, 0.1);
+}
+
+.action-btn image {
+  width: 50rpx;
+  height: 50rpx;
+}
+
+.action-btn.contact {
+  background-color: #ff6b81;
+}
+
+.action-btn.contact image {
+  filter: brightness(0) invert(1);
+}
+
+/* 空状态 */
+.empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 100rpx 0;
+}
+
+.empty-image {
+  width: 300rpx;
+  height: 300rpx;
+  margin-bottom: 30rpx;
+}
+
+.empty-text {
+  font-size: 32rpx;
+  color: #333;
+  margin-bottom: 10rpx;
+}
+
+.empty-subtext {
+  font-size: 28rpx;
+  color: #999;
+}
+
+/* 筛选面板 */
+.filter-panel {
+  position: fixed;
+  top: 0;
+  right: -70%;
+  width: 70%;
+  height: 100%;
+  background-color: #fff;
+  z-index: 1000;
+  transition: all 0.3s ease;
+  padding: 30rpx;
+  box-sizing: border-box;
+  overflow-y: auto;
+}
+
+.filter-panel.show {
+  right: 0;
+}
+
+.filter-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 40rpx;
+}
+
+.filter-title {
+  font-size: 32rpx;
+  font-weight: bold;
+}
+
+.filter-close {
+  font-size: 40rpx;
+  color: #999;
+}
+
+.filter-section {
+  margin-bottom: 30rpx;
+}
+
+.section-title {
+  font-size: 28rpx;
+  color: #333;
+  margin-bottom: 20rpx;
+}
+
+.filter-options {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.filter-option {
+  padding: 10rpx 20rpx;
+  background-color: #f5f5f5;
+  border-radius: 30rpx;
+  font-size: 24rpx;
+  color: #666;
+  margin-right: 20rpx;
+  margin-bottom: 20rpx;
+}
+
+.filter-option.active {
+  background-color: #ff6b81;
+  color: #fff;
+}
+
+.filter-actions {
+  display: flex;
+  margin-top: 50rpx;
+}
+
+.reset-btn, .apply-btn {
+  flex: 1;
+  height: 80rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 40rpx;
+  font-size: 28rpx;
+}
+
+.reset-btn {
+  background-color: #f5f5f5;
+  color: #666;
+  margin-right: 20rpx;
+}
+
+.apply-btn {
+  background-color: #ff6b81;
+  color: #fff;
+}
+
+/* 遮罩层 */
+.mask {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+}

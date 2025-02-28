@@ -1,0 +1,170 @@
+<!--pages/product-detail/product-detail.wxml-->
+<view class="container" wx:if="{{product}}">
+  <!-- 商品图片轮播 -->
+  <view class="product-images">
+    <swiper class="main-image-swiper" current="{{currentImageIndex}}" bindchange="swiperChange">
+      <swiper-item wx:for="{{product.images}}" wx:key="*this">
+        <image class="main-image" src="{{item}}" mode="aspectFill"></image>
+      </swiper-item>
+    </swiper>
+    <view class="image-dots">
+      <view class="dot {{currentImageIndex === index ? 'active' : ''}}" 
+            wx:for="{{product.images}}" 
+            wx:key="*this"
+            bindtap="changeImage"
+            data-index="{{index}}"></view>
+    </view>
+  </view>
+  
+  <!-- 商品基本信息 -->
+  <view class="product-info">
+    <view class="price-row">
+      <view class="price">¥{{product.price}}</view>
+      <view class="original-price" wx:if="{{product.originalPrice}}">¥{{product.originalPrice}}</view>
+      <view class="sales">销量 {{product.sales}}</view>
+    </view>
+    <view class="product-name">{{product.name}}</view>
+    <view class="product-rating">
+      <text class="rating-text">评分 {{product.rating}}</text>
+      <view class="rating-stars">
+        <view class="star filled" wx:for="{{5}}" wx:key="*this" wx:if="{{index < Math.floor(product.rating)}}"></view>
+        <view class="star half" wx:if="{{product.rating % 1 >= 0.5}}"></view>
+        <view class="star empty" wx:for="{{5 - Math.ceil(product.rating)}}" wx:key="*this"></view>
+      </view>
+    </view>
+  </view>
+  
+  <!-- 规格选择 -->
+  <view class="spec-section" bindtap="showSpecSelector">
+    <view class="section-title">规格</view>
+    <view class="section-content">
+      <text>已选：{{selectedSpec.name}}</text>
+      <image class="arrow-icon" src="https://img.icons8.com/ios/50/000000/chevron-right.png" mode="aspectFit"></image>
+    </view>
+  </view>
+  
+  <!-- 商品描述 -->
+  <view class="description-section">
+    <view class="section-title">商品描述</view>
+    <view class="description-content">{{product.description}}</view>
+  </view>
+  
+  <!-- 商品详情 -->
+  <view class="details-section">
+    <view class="section-title">商品详情</view>
+    <view class="details-content">
+      <view class="detail-item" wx:for="{{product.details}}" wx:key="*this">{{item}}</view>
+    </view>
+  </view>
+  
+  <!-- 商品评价 -->
+  <view class="comments-section">
+    <view class="section-header">
+      <view class="section-title">商品评价 ({{product.comments.length}})</view>
+      <view class="more-link" bindtap="viewComments">
+        <text>查看全部</text>
+        <image class="arrow-icon" src="https://img.icons8.com/ios/50/000000/chevron-right.png" mode="aspectFit"></image>
+      </view>
+    </view>
+    <view class="comments-list" wx:if="{{product.comments.length > 0}}">
+      <view class="comment-item" wx:for="{{product.comments}}" wx:key="id" wx:if="{{index < 2}}">
+        <image class="user-avatar" src="{{item.avatar}}" mode="aspectFill"></image>
+        <view class="comment-content">
+          <view class="comment-header">
+            <text class="user-name">{{item.user}}</text>
+            <text class="comment-time">{{item.time}}</text>
+          </view>
+          <view class="rating-stars small">
+            <view class="star filled" wx:for="{{item.rating}}" wx:key="*this"></view>
+            <view class="star empty" wx:for="{{5 - item.rating}}" wx:key="*this"></view>
+          </view>
+          <view class="comment-text">{{item.content}}</view>
+        </view>
+      </view>
+    </view>
+    <view class="empty-comments" wx:else>
+      <text>暂无评价</text>
+    </view>
+  </view>
+  
+  <!-- 相关商品 -->
+  <view class="related-section">
+    <view class="section-title">相关商品</view>
+    <scroll-view class="related-products" scroll-x="true">
+      <view class="related-product" 
+            wx:for="{{relatedProducts}}" 
+            wx:key="id"
+            bindtap="goToRelatedProduct"
+            data-id="{{item.id}}">
+        <image class="related-image" src="{{item.image}}" mode="aspectFill"></image>
+        <view class="related-name">{{item.name}}</view>
+        <view class="related-price">¥{{item.price}}</view>
+      </view>
+    </scroll-view>
+  </view>
+  
+  <!-- 底部操作栏 -->
+  <view class="bottom-bar">
+    <view class="left-actions">
+      <view class="action-item" bindtap="toggleCollect">
+        <image class="action-icon" src="{{isCollected ? 'https://img.icons8.com/ios-filled/50/ff6b81/like.png' : 'https://img.icons8.com/ios/50/000000/like.png'}}" mode="aspectFit"></image>
+        <text>收藏</text>
+      </view>
+      <button class="action-item share-btn" open-type="share">
+        <image class="action-icon" src="https://img.icons8.com/ios/50/000000/share.png" mode="aspectFit"></image>
+        <text>分享</text>
+      </button>
+    </view>
+    <view class="right-actions">
+      <view class="cart-btn" bindtap="showSpecSelector">加入购物车</view>
+      <view class="buy-btn" bindtap="showSpecSelector">立即购买</view>
+    </view>
+  </view>
+  
+  <!-- 规格选择弹窗 -->
+  <view class="spec-selector {{showSpecSelector ? 'show' : ''}}" catchtouchmove="preventTouchMove">
+    <view class="spec-mask" bindtap="hideSpecSelector"></view>
+    <view class="spec-content">
+      <view class="spec-header">
+        <image class="spec-product-image" src="{{product.images[0]}}" mode="aspectFill"></image>
+        <view class="spec-product-info">
+          <view class="spec-product-price">¥{{product.price + (selectedSpec ? selectedSpec.price : 0)}}</view>
+          <view class="spec-product-stock">库存：{{product.stock}}件</view>
+          <view class="spec-product-selected">已选：{{selectedSpec.name}}</view>
+        </view>
+        <view class="close-btn" bindtap="hideSpecSelector">×</view>
+      </view>
+      <view class="spec-body">
+        <view class="spec-title">规格</view>
+        <view class="spec-options">
+          <view class="spec-option {{selectedSpec.id === item.id ? 'active' : ''}}" 
+                wx:for="{{specs}}" 
+                wx:key="id"
+                bindtap="selectSpec"
+                data-id="{{item.id}}">
+            {{item.name}}
+            <view class="spec-price" wx:if="{{item.price > 0}}">+¥{{item.price}}</view>
+          </view>
+        </view>
+        <view class="quantity-selector">
+          <view class="quantity-title">数量</view>
+          <view class="quantity-control">
+            <view class="quantity-btn {{quantity <= 1 ? 'disabled' : ''}}" bindtap="decreaseQuantity">-</view>
+            <view class="quantity-value">{{quantity}}</view>
+            <view class="quantity-btn {{quantity >= product.stock ? 'disabled' : ''}}" bindtap="increaseQuantity">+</view>
+          </view>
+        </view>
+      </view>
+      <view class="spec-footer">
+        <view class="cart-btn-large" bindtap="addToCart">加入购物车</view>
+        <view class="buy-btn-large" bindtap="buyNow">立即购买</view>
+      </view>
+    </view>
+  </view>
+</view>
+
+<!-- 加载中 -->
+<view class="loading" wx:else>
+  <image class="loading-icon" src="https://img.icons8.com/ios/50/000000/spinner-frame-5.png" mode="aspectFit"></image>
+  <text>加载中...</text>
+</view>
